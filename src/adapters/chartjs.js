@@ -392,7 +392,7 @@ let createDataTable = function (chart, options, chartType) {
       data: rows2[i],
       fill: chartType === "area",
       borderColor: color,
-      backgroundColor: chartType === "area" ? addOpacity(backgroundColor, 0.5) : backgroundColor,
+      backgroundColor: chartType === "area" ? addOpacity(backgroundColor, 0.1) : backgroundColor,
       borderWidth: 0
     };
 
