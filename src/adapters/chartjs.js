@@ -380,11 +380,11 @@ let createDataTable = function (chart, options, chartType) {
       color = colors;
       backgroundColor = [];
       for (let j = 0; j < colors.length; j++) {
-        backgroundColor[j] = addOpacity(color[j], 0.5);
+        backgroundColor[j] = color[j];
       }
     } else {
       color = s.color || colors[i];
-      backgroundColor = chartType !== "line" ? addOpacity(color, 0.5) : color;
+      backgroundColor = color;
     }
 
     let dataset = {
@@ -393,7 +393,7 @@ let createDataTable = function (chart, options, chartType) {
       fill: chartType === "area",
       borderColor: color,
       backgroundColor: backgroundColor,
-      borderWidth: 2
+      borderWidth: 0
     };
 
     let pointChart = chartType === "line" || chartType === "area" || chartType === "scatter" || chartType === "bubble";
@@ -406,7 +406,7 @@ let createDataTable = function (chart, options, chartType) {
     if (chartType === "bubble") {
       dataset.pointBackgroundColor = backgroundColor;
       dataset.pointHoverBackgroundColor = backgroundColor;
-      dataset.pointHoverBorderWidth = 2;
+      dataset.pointHoverBorderWidth = 0;
     }
 
     if (s.stack) {
