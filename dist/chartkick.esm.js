@@ -424,6 +424,12 @@ var setYtitle$2 = function (options, title) {
   options.scales.y.title.text = title;
 };
 
+// https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+var addOpacity = function (hex, opacity) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? "rgba(" + parseInt(result[1], 16) + ", " + parseInt(result[2], 16) + ", " + parseInt(result[3], 16) + ", " + opacity + ")" : hex;
+};
+
 // check if not null or undefined
 // https://stackoverflow.com/a/27757708/1177228
 var notnull = function (x) {
@@ -690,7 +696,7 @@ var createDataTable = function (chart, options, chartType) {
       data: rows2[i],
       fill: chartType === "area",
       borderColor: color,
-      backgroundColor: backgroundColor,
+      backgroundColor: chartType === "area" ? addOpacity(backgroundColor, 0.5) : backgroundColor,
       borderWidth: 0
     };
 
