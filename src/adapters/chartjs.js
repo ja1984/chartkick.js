@@ -393,7 +393,7 @@ let createDataTable = function (chart, options, chartType) {
       fill: chartType === "area",
       borderColor: color,
       backgroundColor: chartType === "area" ? addOpacity(backgroundColor, 0.2) : backgroundColor,
-      borderWidth: 0
+      borderWidth: chartType === "line" ? 2 : 0
     };
 
     let pointChart = chartType === "line" || chartType === "area" || chartType === "scatter" || chartType === "bubble";
