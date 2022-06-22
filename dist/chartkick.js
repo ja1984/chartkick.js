@@ -702,8 +702,8 @@
         data: rows2[i],
         fill: chartType === "area",
         borderColor: color,
-        backgroundColor: chartType === "area" ? addOpacity(backgroundColor, 0.5) : backgroundColor,
-        borderWidth: 0
+        backgroundColor: chartType === "area" ? addOpacity(backgroundColor, 0.2) : backgroundColor,
+        borderWidth: ["line", "area"].includes(chartType) ? 2 : 0
       };
 
       var pointChart = chartType === "line" || chartType === "area" || chartType === "scatter" || chartType === "bubble";
